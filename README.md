@@ -1,4 +1,4 @@
-# EpitOver
+# OverDex
 
 Application Android pour le cours d'informatique mobile à l'UQAC (8INF257) pendant le trimestre d'hiver 2019.
 
