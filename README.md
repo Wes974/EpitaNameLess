@@ -14,11 +14,14 @@ Pour récupérer le projet, utiliser [GitHub Desktop](https://desktop.github.com
 
 Avant de faire des modifications s'assurer d'être sur sa branche.
 
-Pour créer une branche faire `git branch [NOM DE LA BRANCHE]`.
-Pour changer de branche faire `git checkout [NOM DE LA BRANCHE]`.
+Pour créer une branche faire `git branch [NOM DE LA BRANCHE]`
+
+Pour changer de branche faire `git checkout [NOM DE LA BRANCHE]`
 
 Faire `git status` pour vérifier sur quelle branche on est, et si des modifications on été faites.
 
 Pour ajouter des fichiers faire `git add -A` dans la racine du dossier.
-Pour prendre en compte les modifications faire `git commit -am "MESSAGE"`.
-Pour envoyer les modifications sur GitHub faire `git push`.
+
+Pour prendre en compte les modifications faire `git commit -am "MESSAGE"`
+
+Pour envoyer les modifications sur GitHub faire `git push`
