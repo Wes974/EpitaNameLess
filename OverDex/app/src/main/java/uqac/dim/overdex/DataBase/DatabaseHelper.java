@@ -1,11 +1,9 @@
 package uqac.dim.overdex.DataBase;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -30,13 +28,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.myContext = context;
     }
 
-    public void createDatabase() throws IOException {
-
+    public void createDatabase() {
         boolean dbExist = checkDataBase();
         if (dbExist) {
-            Log.v("DIM", "DB exists");
         } else {
-            Log.v("DIM", "DB not exists");
             try {
                 this.getReadableDatabase();
                 this.close();
@@ -48,13 +43,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private boolean checkDataBase(){
         boolean checkDB = false;
-        try{
-            File dbfile = new File(DATABASE_PATH + DATABASE_NAME);
-            checkDB = dbfile.exists();
-        }
-        catch(SQLiteException e){
-            Log.v("DIM", e.getMessage());
-        }
+        File dbfile = new File(DATABASE_PATH + DATABASE_NAME);
+        checkDB = dbfile.exists();
         return checkDB;
     }
 

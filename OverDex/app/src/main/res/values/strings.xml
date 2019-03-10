@@ -1,3 +1,47 @@
 <resources>
     <string name="app_name">Overdex</string>
+
+    <string name="header">Header</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <!-- Data Base Info  : HEROES_TABLE -->
+    <string name="ID_heroes">ID_heroes</string>
+    <string name="Name_heroes">Name_heroes</string>
+    <string name="classe_heroes">classe_heroes</string>
+    <string name="Picture_heroes">Picture_heroes</string>
+    <string name="Identity_hereos">Identity_hereos</string>
+    <string name="Age_heroes">Age_heroes</string>
+    <string name="Job_heroes">Job_heroes</string>
+    <string name="Localisation_heroes">Localisation_heroes</string>
+    <string name="afflilation_heroes">afflilation_heroes</string>
+    <string name="Citation_heroes">Citation_heroes</string>
+
+    <!-- Data Base Info  : ATTACKS_TABLE -->
+    <string name="description_heroes">description_heroes</string>
+    <string name="Picture_attacks">Picture_attacks</string>
+    <string name="Name_attacks">Name_attacks</string>
+    <string name="Descr_attacks">Descr_attacks</string>
+
+    <!-- Carte d'identité hero -->
+    <string name="biography">Biographie</string>
+    <string name="identity">Identité :</string>
+    <string name="age">Âge :</string>
+    <string name="job">Profession :</string>
+    <string name="localisation">Base d\'opération :</string>
+    <string name="afflilation">Afflilation :</string>
+    <string name="identity_logo">Logo identité</string>
+    <string name="job_logo">Logo profession</string>
+    <string name="localisation_logo">Logo base d\'opération</string>
+    <string name="afflilation_logo">Logo afflilation</string>
+    <string name="History_heroes">History_Heroes</string>
+
+    <!-- Attaques hero -->
+    <string name="classe">Rôle</string>
+    <string name="capacity">Capacités</string>
+
+    <!-- Buttons -->
+    <string name="Attack_Button">Lien vers page Attaques</string>
+    <string name="Skin_Button">Lien vers page Skins</string>
+
 </resources>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/heroes_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/bio_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/picture_heroes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/Picture_heroes"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/biography"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/picture_heroes"
+                    android:text="@string/biography"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/biography"
+                    android:layout_toRightOf="@id/picture_heroes"
+                    android:padding="5dp">
+
+                    <TableRow android:padding="1dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/identity_logo"
+                            android:src="@drawable/ic_launcher_background" />
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/identity" />
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Identity_hereos" />
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/age" />
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Age_heroes" />
+                    </TableRow>
+
+                    <TableRow android:padding="1dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/job_logo"
+                            android:src="@drawable/ic_launcher_background" />/>
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/job" />
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Job_heroes" />
+                    </TableRow>
+
+                    <TableRow android:padding="1dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/localisation_logo"
+                            android:src="@drawable/ic_launcher_background" />/>
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/localisation" />
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Localisation_heroes" />
+                    </TableRow>
+
+                    <TableRow android:padding="1dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:contentDescription="@string/afflilation_logo"
+                            android:src="@drawable/ic_launcher_background" />/>
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/afflilation" />
+
+                        <TextView
+                            style="@style/BioText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/afflilation_heroes" />
+                    </TableRow>
+                </TableLayout>
+            </RelativeLayout>
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimaryDark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/citation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/Citation_heroes"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/BioText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:text="@string/History_heroes" />
+            </LinearLayout>
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimaryDark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@string/Attack_Button"
+                    android:src="@drawable/ic_launcher_background"
+                    android:layout_margin="20dp"/>
+
+                <ImageButton
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@string/Skin_Button"
+                    android:src="@drawable/ic_launcher_background"
+                    android:layout_margin="20dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
