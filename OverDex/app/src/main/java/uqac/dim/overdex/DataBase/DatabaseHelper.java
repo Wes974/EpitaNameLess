@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import java.io.File;
@@ -12,6 +13,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Blob;
+import java.util.ArrayList;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -89,5 +92,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (newVersion > oldVersion) {
             db_delete();
         }
+    }
+
+    public ArrayList<Heroes> getHeroesList() {
+        ArrayList<Heroes> heroesArrayList = new ArrayList<Heroes>();
+
+        try {
+            Cursor cursor = myDataBase.rawQuery("SELECT * FROM HEROES", null);
+            if (cursor != null) {
+                cursor.moveToFirst();
+                do {
+                int Id = cursor.getInt(cursor.getColumnIndex("ID"));
+                String Name = cursor.getString(cursor.getColumnIndex("Name"));
+                //byte[] Picture = cursor.getBlob(cursor.getColumnIndex("Picture"));
+                String Classe = cursor.getString(cursor.getColumnIndex("Classe"));
+                String Description = cursor.getString(cursor.getColumnIndex("Description"));
+                String Identity = cursor.getString(cursor.getColumnIndex("Identity"));
+                String Age = cursor.getString(cursor.getColumnIndex("Age"));
+                String Job = cursor.getString(cursor.getColumnIndex("Job"));
+                String Localisation = cursor.getString(cursor.getColumnIndex("Localisation"));
+                String Afflilation = cursor.getString(cursor.getColumnIndex("Afflilation"));
+                String Citation = cursor.getString(cursor.getColumnIndex("Citation"));
+                String History = cursor.getString(cursor.getColumnIndex("History"));
+                heroesArrayList.add(new Heroes(Id, Name, null, Classe, Description, Identity, Age, Job, Localisation,
+                        Afflilation, Citation, History));
+                } while (cursor.moveToNext());
+
+                Log.v("DIM", "getHeroesList done");
+            }
+            cursor.close();
+        }catch (Exception e) {
+            Log.v ("DIM", e.getMessage());
+        }
+
+        return heroesArrayList;
     }
 }

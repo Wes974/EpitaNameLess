@@ -1,22 +1,21 @@
 package uqac.dim.overdex;
 
 import android.content.res.Configuration;
-import android.database.Cursor;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ToolbarWidgetWrapper;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.CompoundButton;
 import android.widget.ListView;
-import android.widget.Toolbar;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import uqac.dim.overdex.DataBase.DatabaseHelper;
+import uqac.dim.overdex.DataBase.Heroes;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -27,8 +26,8 @@ public class MainActivity extends AppCompatActivity  {
     private ActionBarDrawerToggle drawerToggle;
 
     private DatabaseHelper databaseHelper;
-    private HeroesCursorAdaptater heroesAdaptaer;
-    private Cursor cursor;
+    private ArrayList<Heroes> heroesArrayList;
+    private HeroesAdaptater heroesadaptaer;
 
 
     @Override
@@ -44,9 +43,10 @@ public class MainActivity extends AppCompatActivity  {
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
         databaseHelper.openDatabase();
+        heroesArrayList = databaseHelper.getHeroesList();
 
-        //heroesAdaptaer = new HeroesCursorAdaptater();
-        //listView.setAdapter(heroesAdaptaer);
+        heroesadaptaer = new HeroesAdaptater(this,heroesArrayList);
+        listView.setAdapter(heroesadaptaer);
         listView.setOnItemClickListener(new DrawerItemClickListener());
     }
 
@@ -57,47 +57,23 @@ public class MainActivity extends AppCompatActivity  {
         listView = (ListView) findViewById(R.id.nav_listView);
     }
 
-    /*private void setupDrawerContent(NavigationView navView) {
-        navView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        selectDrawerItem(menuItem);
-                        return true;
-                    }
-                });
-    }*/
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
                 selectItem(position);
             }
     }
 
 
-    /*public void selectDrawerItem(MenuItem menuItem) {
-        switch(menuItem.getItemId()) {
-        }
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
-        layDrawer.closeDrawers();
-    }*/
-
     private void selectItem(int position) {
 
-        switch (position) {
-        }
-        listView.setItemChecked(position, true);
-        listView.setSelection(position);
-        layDrawer.closeDrawer(listView);
+        Toast.makeText(this, "Choix " + (position+1), Toast.LENGTH_LONG).show();
 
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (drawerToggle.onOptionsItemSelected(item))
-            return true;
-        return super.onOptionsItemSelected(item);
+        listView.setItemChecked(position, true);
+        setTitle("TITRE");
+        layDrawer.closeDrawer(navView);
+
     }
 
     private ActionBarDrawerToggle setDrawerToggle() {

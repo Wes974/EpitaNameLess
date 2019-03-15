@@ -14,5 +14,4 @@
         android:text="@string/header"
         android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
 </LinearLayout>
