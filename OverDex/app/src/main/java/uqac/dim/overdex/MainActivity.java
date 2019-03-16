@@ -6,10 +6,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity  {
     private DatabaseHelper databaseHelper;
     private ArrayList<Heroes> heroesArrayList;
     private HeroesAdaptater heroesadaptaer;
+
+    private int ID_heroes = 1;
 
 
     @Override
@@ -48,6 +52,8 @@ public class MainActivity extends AppCompatActivity  {
         heroesadaptaer = new HeroesAdaptater(this,heroesArrayList);
         listView.setAdapter(heroesadaptaer);
         listView.setOnItemClickListener(new DrawerItemClickListener());
+
+        changeLayoutHeroes(ID_heroes);
     }
 
     public void initLay() {
@@ -55,6 +61,22 @@ public class MainActivity extends AppCompatActivity  {
         layDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navView = (NavigationView) findViewById(R.id.navigation_view);
         listView = (ListView) findViewById(R.id.nav_listView);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.v("DIM", Integer.toString(ID_heroes) + " Save");
+        outState.putInt("ID", ID_heroes);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            Log.v("DIM",Integer.toString(savedInstanceState.getInt("ID")) + " Restore");
+            changeLayoutHeroes(savedInstanceState.getInt("ID"));
+        }
     }
 
 
@@ -67,11 +89,12 @@ public class MainActivity extends AppCompatActivity  {
 
 
     private void selectItem(int position) {
-
-        Toast.makeText(this, "Choix " + (position+1), Toast.LENGTH_LONG).show();
+        ID_heroes = heroesArrayList.get(position).getId();
+        Toast.makeText(this, heroesArrayList.get(position).getName() + " " + ID_heroes, Toast.LENGTH_LONG).show();
+        changeLayoutHeroes(ID_heroes);
 
         listView.setItemChecked(position, true);
-        setTitle("TITRE");
+        setTitle(heroesArrayList.get(position).getName());
         layDrawer.closeDrawer(navView);
 
     }
@@ -91,5 +114,27 @@ public class MainActivity extends AppCompatActivity  {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
-}
 
+    public void  changeLayoutHeroes (int ID_heroes) {
+
+        int index = -1;
+        for(int i = 0; i < heroesArrayList.size(); i++) {
+            if (heroesArrayList.get(i).getId() == ID_heroes) {
+                index = i;
+            }
+        }
+
+        if (index < 0) {
+            Log.v("DIM","This ID does not exist in this DB");
+            return;
+        }
+
+        ((TextView)findViewById(R.id.Identity_heroes)).setText(heroesArrayList.get(index).getIdentity());
+        ((TextView)findViewById(R.id.Age_heroes)).setText(heroesArrayList.get(index).getAge());
+        ((TextView)findViewById(R.id.Job_heroes)).setText(heroesArrayList.get(index).getJob());
+        ((TextView)findViewById(R.id.Localisation_heroes)).setText(heroesArrayList.get(index).getLocalisation());
+        ((TextView)findViewById(R.id.Afflilation_heroes)).setText(heroesArrayList.get(index).getAfflilation());
+        ((TextView)findViewById(R.id.Citation_heroes)).setText(heroesArrayList.get(index).getCitation());
+        ((TextView)findViewById(R.id.History_heroes)).setText(heroesArrayList.get(index).getHistory());
+    }
+}

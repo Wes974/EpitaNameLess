@@ -62,9 +62,10 @@
 
                         <TextView
                             style="@style/BioText"
+                            android:id="@+id/Identity_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/Identity_hereos" />
+                            android:text="@string/Identity_heroes" />
 
                         <TextView
                             style="@style/BioText"
@@ -74,6 +75,7 @@
 
                         <TextView
                             style="@style/BioText"
+                            android:id="@+id/Age_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/Age_heroes" />
@@ -85,7 +87,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/job_logo"
-                            android:src="@drawable/ic_launcher_background" />/>
+                            android:src="@drawable/ic_launcher_background" />
 
                         <TextView
                             style="@style/BioText"
@@ -95,6 +97,7 @@
 
                         <TextView
                             style="@style/BioText"
+                            android:id="@+id/Job_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/Job_heroes" />
@@ -106,7 +109,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/localisation_logo"
-                            android:src="@drawable/ic_launcher_background" />/>
+                            android:src="@drawable/ic_launcher_background" />
 
                         <TextView
                             style="@style/BioText"
@@ -116,6 +119,7 @@
 
                         <TextView
                             style="@style/BioText"
+                            android:id="@+id/Localisation_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/Localisation_heroes" />
@@ -127,7 +131,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/afflilation_logo"
-                            android:src="@drawable/ic_launcher_background" />/>
+                            android:src="@drawable/ic_launcher_background" />
 
                         <TextView
                             style="@style/BioText"
@@ -137,6 +141,7 @@
 
                         <TextView
                             style="@style/BioText"
+                            android:id="@+id/Afflilation_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/afflilation_heroes" />
@@ -155,7 +160,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/citation"
+                    android:id="@+id/Citation_heroes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/Citation_heroes"
@@ -164,6 +169,7 @@
 
                 <TextView
                     style="@style/BioText"
+                    android:id="@+id/History_heroes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
