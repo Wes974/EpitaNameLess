@@ -191,7 +191,8 @@
                     android:layout_height="50dp"
                     android:contentDescription="@string/Attack_Button"
                     android:src="@drawable/ic_launcher_background"
-                    android:layout_margin="20dp"/>
+                    android:layout_margin="20dp"
+                    android:onClick="openAttackActivity"/>
 
                 <ImageButton
                     android:layout_width="150dp"

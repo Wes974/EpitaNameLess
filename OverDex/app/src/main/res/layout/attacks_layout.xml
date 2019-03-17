@@ -28,10 +28,12 @@
                     android:textSize="40px"
                     android:textStyle="bold"/>
                 <TextView
+                    android:id="@+id/Classe_heroes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/classe_heroes"/>
                 <TextView
+                    android:id="@+id/Descr_heroes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/description_heroes"/>

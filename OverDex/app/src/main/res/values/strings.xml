@@ -44,5 +44,6 @@
     <!-- Buttons -->
     <string name="Attack_Button">Lien vers page Attaques</string>
     <string name="Skin_Button">Lien vers page Skins</string>
+    <string name="attackActivity">Attaques</string>
 
 </resources>

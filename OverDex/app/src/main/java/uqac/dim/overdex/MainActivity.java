@@ -1,5 +1,6 @@
 package uqac.dim.overdex;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -7,7 +8,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -21,6 +21,7 @@ import uqac.dim.overdex.DataBase.Heroes;
 
 public class MainActivity extends AppCompatActivity  {
 
+    public final static String EXTRA_ID = "uqac.dim.overdex.ID";
     private ListView listView;
     private DrawerLayout layDrawer;
     private android.support.v7.widget.Toolbar toolbar;
@@ -94,9 +95,7 @@ public class MainActivity extends AppCompatActivity  {
         changeLayoutHeroes(ID_heroes);
 
         listView.setItemChecked(position, true);
-        setTitle(heroesArrayList.get(position).getName());
         layDrawer.closeDrawer(navView);
-
     }
 
     private ActionBarDrawerToggle setDrawerToggle() {
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity  {
             Log.v("DIM","This ID does not exist in this DB");
             return;
         }
-
+        setTitle(heroesArrayList.get(index).getName());
         ((TextView)findViewById(R.id.Identity_heroes)).setText(heroesArrayList.get(index).getIdentity());
         ((TextView)findViewById(R.id.Age_heroes)).setText(heroesArrayList.get(index).getAge());
         ((TextView)findViewById(R.id.Job_heroes)).setText(heroesArrayList.get(index).getJob());
@@ -136,5 +135,14 @@ public class MainActivity extends AppCompatActivity  {
         ((TextView)findViewById(R.id.Afflilation_heroes)).setText(heroesArrayList.get(index).getAfflilation());
         ((TextView)findViewById(R.id.Citation_heroes)).setText(heroesArrayList.get(index).getCitation());
         ((TextView)findViewById(R.id.History_heroes)).setText(heroesArrayList.get(index).getHistory());
+    }
+
+    public void openAttackActivity(View bouton){
+
+        Intent intent = new Intent(MainActivity.this, AttackActivity.class);
+
+        intent.putExtra(EXTRA_ID, ID_heroes);
+        databaseHelper.closeDataBase();
+        startActivity(intent);
     }
 }
