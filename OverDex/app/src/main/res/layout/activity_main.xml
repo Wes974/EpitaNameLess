@@ -33,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:choiceMode="singleChoice"
-                android:divider="@color/colorPrimaryDark" />
+                android:divider="@color/colorPrimaryDark"
+                android:dividerHeight="2dp"/>
         </android.support.design.widget.NavigationView>
 
 

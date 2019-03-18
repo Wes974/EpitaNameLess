@@ -5,13 +5,21 @@
     android:layout_height="100dp"
     android:background="@color/colorPrimaryDark"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:gravity="bottom"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/logo_header"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/Logo_header"
+        android:padding="2dp"
+        android:src="@drawable/logo_header"/>
     <TextView
+        style="@style/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/header"
-        android:textColor="@android:color/white"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:gravity="center"/>
 </LinearLayout>

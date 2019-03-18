@@ -7,9 +7,28 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:textSize">30px</item>
+        <item name="android:fontFamily">@font/typo_classique</item>
     </style>
-    <style name="BioText">
-        <item name="android:textSize">20px</item>
+    <style name="MainText">
+        <item name="android:textSize">45px</item>
+        <item name="android:textColor">@color/mainText</item>
+    </style>
+    <style name="title">
+        <item name="android:textSize">35px</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="nav_list">
+        <item name="android:textSize">50px</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="header">
+        <item name="android:textSize">45px</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/headerText</item>
+    </style>
+    <style name="background">
+        <item name="android:background">@drawable/background</item>
     </style>
 
 </resources>

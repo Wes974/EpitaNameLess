@@ -15,7 +15,6 @@ import uqac.dim.overdex.DataBase.DatabaseHelper;
 import uqac.dim.overdex.DataBase.Heroes;
 
 public class AttackActivity extends AppCompatActivity {
-
     private ListView listView;
     private android.support.v7.widget.Toolbar toolbar;
 
@@ -79,7 +78,7 @@ public class AttackActivity extends AppCompatActivity {
         attacksadaptater = new AttacksAdaptater(this,attacksArrayList);
         listView.setAdapter(attacksadaptater);
 
-        setTitle(getTitle()+ " : " +heroesArrayList.get(index).getName());
+        setTitle(heroesArrayList.get(index).getName());
         ((TextView)findViewById(R.id.Classe_heroes)).setText(heroesArrayList.get(index).getClasse());
         ((TextView)findViewById(R.id.Descr_heroes)).setText(heroesArrayList.get(index).getDescription());
     }

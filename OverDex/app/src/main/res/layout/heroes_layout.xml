@@ -16,6 +16,8 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                style="@style/background"
+                android:layout_margin="10dp"
                 android:id="@+id/bio_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,16 +29,17 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:contentDescription="@string/Picture_heroes"
+                    android:layout_margin="10dp"
                     android:padding="2dp"
                     android:src="@drawable/ic_launcher_background" />
 
                 <TextView
+                    style="@style/MainText"
                     android:id="@+id/biography"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@id/picture_heroes"
                     android:text="@string/biography"
-                    android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TableLayout
@@ -52,29 +55,27 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/identity_logo"
-                            android:src="@drawable/ic_launcher_background" />
+                            android:src="@drawable/logo_identity" />
 
                         <TextView
-                            style="@style/BioText"
+                            style="@style/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/identity" />
 
                         <TextView
-                            style="@style/BioText"
                             android:id="@+id/Identity_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/Identity_heroes" />
 
                         <TextView
-                            style="@style/BioText"
+                            style="@style/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/age" />
 
                         <TextView
-                            style="@style/BioText"
                             android:id="@+id/Age_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -87,16 +88,15 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/job_logo"
-                            android:src="@drawable/ic_launcher_background" />
+                            android:src="@drawable/logo_job" />
 
                         <TextView
-                            style="@style/BioText"
+                            style="@style/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/job" />
 
                         <TextView
-                            style="@style/BioText"
                             android:id="@+id/Job_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -109,16 +109,15 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/localisation_logo"
-                            android:src="@drawable/ic_launcher_background" />
+                            android:src="@drawable/logo_localisation" />
 
                         <TextView
-                            style="@style/BioText"
+                            style="@style/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/localisation" />
 
                         <TextView
-                            style="@style/BioText"
                             android:id="@+id/Localisation_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -131,16 +130,15 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/afflilation_logo"
-                            android:src="@drawable/ic_launcher_background" />
+                            android:src="@drawable/logo_afflilation" />
 
                         <TextView
-                            style="@style/BioText"
+                            style="@style/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/afflilation" />
 
                         <TextView
-                            style="@style/BioText"
                             android:id="@+id/Afflilation_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -155,20 +153,23 @@
                 android:background="@color/colorPrimaryDark" />
 
             <LinearLayout
+                style="@style/background"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/MainText"
                     android:id="@+id/Citation_heroes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/Citation_heroes"
+                    android:layout_margin="10dp"
                     android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
-                    style="@style/BioText"
                     android:id="@+id/History_heroes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -184,22 +185,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal">
 
                 <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
+                    android:layout_width="180dp"
+                    android:layout_height="85dp"
                     android:contentDescription="@string/Attack_Button"
-                    android:src="@drawable/ic_launcher_background"
-                    android:layout_margin="20dp"
+                    android:src="@drawable/button_attacks"
                     android:onClick="openAttackActivity"/>
 
                 <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
+                    android:layout_width="180dp"
+                    android:layout_height="85dp"
                     android:contentDescription="@string/Skin_Button"
-                    android:src="@drawable/ic_launcher_background"
-                    android:layout_margin="20dp"/>
+                    android:src="@drawable/button_skins" />
             </LinearLayout>
 
         </LinearLayout>

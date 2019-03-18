@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Overdex</string>
 
-    <string name="header">Header</string>
+    <string name="header">Overdex</string>
+    <string name="Logo_header">Logo Header</string>
+
+
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
@@ -36,7 +39,6 @@
     <string name="localisation_logo">Logo base d\'opération</string>
     <string name="afflilation_logo">Logo afflilation</string>
 
-
     <!-- Attaques hero -->
     <string name="classe">Rôle</string>
     <string name="capacity">Capacités</string>
@@ -44,6 +46,7 @@
     <!-- Buttons -->
     <string name="Attack_Button">Lien vers page Attaques</string>
     <string name="Skin_Button">Lien vers page Skins</string>
+
     <string name="attackActivity">Attaques</string>
 
 </resources>
