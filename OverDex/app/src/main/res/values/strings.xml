@@ -29,11 +29,11 @@
 
     <!-- Carte d'identité hero -->
     <string name="biography">Biographie</string>
-    <string name="identity">Identité :</string>
-    <string name="age">Âge :</string>
-    <string name="job">Profession :</string>
-    <string name="localisation">Base d\'opération :</string>
-    <string name="afflilation">Afflilation :</string>
+    <string name="identity">Identité : </string>
+    <string name="age">Âge : </string>
+    <string name="job">Profession : </string>
+    <string name="localisation">Base d\'opération : </string>
+    <string name="afflilation">Afflilation : </string>
     <string name="identity_logo">Logo identité</string>
     <string name="job_logo">Logo profession</string>
     <string name="localisation_logo">Logo base d\'opération</string>

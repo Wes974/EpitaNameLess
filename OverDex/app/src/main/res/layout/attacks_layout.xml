@@ -30,6 +30,7 @@
                     android:text="@string/classe"
                     android:textStyle="bold"/>
                 <TextView
+                    style="@style/title"
                     android:id="@+id/Classe_heroes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

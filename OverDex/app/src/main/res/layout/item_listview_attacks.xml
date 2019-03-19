@@ -9,13 +9,14 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/Picture_attacks"
-        android:src="@drawable/ic_launcher_background"/>
+        android:src="@drawable/ic_launcher_background"
+        android:padding="5dp"/>
     <TextView
+        style="@style/title"
         android:id="@+id/Name_attacks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Name_attacks"
-        android:textStyle="bold"
         android:layout_toRightOf="@+id/Picture_attacks"/>
     <TextView
         android:id="@+id/Descr_attacks"
