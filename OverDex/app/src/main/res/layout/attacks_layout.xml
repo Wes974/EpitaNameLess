@@ -63,9 +63,10 @@
                 <ListView
                     android:id="@+id/attacks_listView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp"
                     android:divider="#00FFFFFF"
-                    android:dividerHeight="10dp"/>
+                    android:dividerHeight="15dp"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
