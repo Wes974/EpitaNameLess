@@ -6,4 +6,5 @@
     <color name="background">#40334768</color>
     <color name="mainText">#00c3ff</color>
     <color name="headerText">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
 </resources>

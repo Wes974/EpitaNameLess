@@ -19,7 +19,7 @@
         <item name="android:textStyle">bold</item>
     </style>
     <style name="nav_list">
-        <item name="android:textSize">50px</item>
+        <item name="android:textSize">55px</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="header">
