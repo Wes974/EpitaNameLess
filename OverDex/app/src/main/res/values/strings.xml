@@ -48,5 +48,7 @@
     <string name="Skin_Button">Lien vers page Skins</string>
 
     <string name="attackActivity">Attaques</string>
+    <string name="overdex_logo">Logo overdex</string>
+    <string name="overdex_title">Titre overdex</string>
 
 </resources>
