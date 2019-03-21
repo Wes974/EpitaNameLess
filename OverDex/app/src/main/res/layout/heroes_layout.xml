@@ -104,7 +104,7 @@
                             android:id="@+id/Job_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_span="3"
+                            android:layout_span="4"
                             android:text="@string/Job_heroes" />
                     </TableRow>
 
@@ -126,7 +126,7 @@
                             android:id="@+id/Localisation_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_span="3"
+                            android:layout_span="4"
                             android:text="@string/Localisation_heroes" />
                     </TableRow>
 
@@ -148,7 +148,7 @@
                             android:id="@+id/Afflilation_heroes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_span="3"
+                            android:layout_span="4"
                             android:text="@string/afflilation_heroes" />
                     </TableRow>
                 </TableLayout>

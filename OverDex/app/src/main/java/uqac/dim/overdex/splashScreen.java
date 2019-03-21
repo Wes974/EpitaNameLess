@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 
-public class splashScreen extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
 
     Handler handler;
 
@@ -18,7 +18,7 @@ public class splashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(splashScreen.this, MainActivity.class);
+                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

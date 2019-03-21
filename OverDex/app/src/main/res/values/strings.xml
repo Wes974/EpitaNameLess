@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Overdex</string>
+    <string name="overdex_logo">Logo overdex</string>
+    <string name="overdex_title">Titre overdex</string>
 
     <string name="header">Overdex</string>
     <string name="Logo_header">Logo Header</string>
-
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
@@ -21,6 +22,7 @@
     <string name="afflilation_heroes">afflilation_heroes</string>
     <string name="Citation_heroes">Citation_heroes</string>
     <string name="History_heroes">History_Heroes</string>
+    <string name="Logo_heroes">Logo_heroes</string>
 
     <!-- Data Base Info  : ATTACKS_TABLE -->
     <string name="Picture_attacks">Picture_attacks</string>
@@ -48,7 +50,4 @@
     <string name="Skin_Button">Lien vers page Skins</string>
 
     <string name="attackActivity">Attaques</string>
-    <string name="overdex_logo">Logo overdex</string>
-    <string name="overdex_title">Titre overdex</string>
-
 </resources>

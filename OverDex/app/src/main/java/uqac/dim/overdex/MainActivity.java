@@ -57,6 +57,12 @@ public class MainActivity extends AppCompatActivity  {
         changeLayoutHeroes(ID_heroes);
     }
 
+    @Override
+    protected void onStop(){
+        super.onStop();
+        databaseHelper.closeDataBase();
+    }
+
     public void initLay() {
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         layDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);

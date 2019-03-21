@@ -46,6 +46,12 @@ public class AttackActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop(){
+        super.onStop();
+        databaseHelper.closeDataBase();
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.v("DIM", Integer.toString(ID_heroes) + " Save");
