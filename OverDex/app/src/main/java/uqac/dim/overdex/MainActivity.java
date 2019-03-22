@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private  MediaPlayer clickSound;
     private  MediaPlayer mainSound;
+    private int mainSound_length;
 
     private DatabaseHelper databaseHelper;
     private ArrayList<Heroes> heroesArrayList;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity  {
         clickSound = MediaPlayer.create(this, R.raw.soundclick);
         mainSound = MediaPlayer.create(this, R.raw.soundmain);
         mainSound.setLooping(true);
+        mainSound.start();
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
@@ -66,9 +68,10 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     @Override
-    protected void onStart(){
-        super.onStart();
-        mainSound.start();
+    public void onPause(){
+        super.onPause();
+        mainSound.pause();
+        mainSound_length = mainSound.getCurrentPosition();
     }
 
     @Override
@@ -76,6 +79,13 @@ public class MainActivity extends AppCompatActivity  {
         super.onStop();
         databaseHelper.closeDataBase();
         mainSound.stop();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mainSound.seekTo(mainSound_length);
+        mainSound.start();
     }
 
     public void initLay() {

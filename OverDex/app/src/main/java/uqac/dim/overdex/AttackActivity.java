@@ -20,6 +20,7 @@ public class AttackActivity extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private  MediaPlayer mainSound;
     private  MediaPlayer clickSound;
+    private int mainSound_length;
 
     private DatabaseHelper databaseHelper;
     private ArrayList<Heroes> heroesArrayList;
@@ -43,6 +44,7 @@ public class AttackActivity extends AppCompatActivity {
         clickSound = MediaPlayer.create(this, R.raw.soundclick);
         mainSound = MediaPlayer.create(this, R.raw.soundmain);
         mainSound.setLooping(true);
+        mainSound.start();
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
@@ -53,8 +55,16 @@ public class AttackActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
-        super.onStart();
+    public void onPause(){
+        super.onPause();
+        mainSound.pause();
+        mainSound_length = mainSound.getCurrentPosition();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        mainSound.seekTo(mainSound_length);
         mainSound.start();
     }
 
