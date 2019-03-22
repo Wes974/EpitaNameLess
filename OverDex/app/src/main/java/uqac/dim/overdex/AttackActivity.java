@@ -20,7 +20,6 @@ public class AttackActivity extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private  MediaPlayer mainSound;
     private  MediaPlayer clickSound;
-    private int mainSound_length;
 
     private DatabaseHelper databaseHelper;
     private ArrayList<Heroes> heroesArrayList;
@@ -42,9 +41,13 @@ public class AttackActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         clickSound = MediaPlayer.create(this, R.raw.soundclick);
-        mainSound = MediaPlayer.create(this, R.raw.soundmain);
-        mainSound.setLooping(true);
-        mainSound.start();
+        try{
+            mainSound = MediaPlayer.create(this, R.raw.soundmain);
+            mainSound.setLooping(true);
+            mainSound.prepare();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
@@ -55,17 +58,25 @@ public class AttackActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onPause(){
-        super.onPause();
-        mainSound.pause();
-        mainSound_length = mainSound.getCurrentPosition();
+    protected void onStart(){
+        super.onStart();
+        mainSound.start();
     }
 
     @Override
     protected void onResume(){
         super.onResume();
-        mainSound.seekTo(mainSound_length);
-        mainSound.start();
+        if (mainSound != null && !mainSound.isPlaying()) {
+            mainSound.start();
+        }
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if (mainSound != null && mainSound.isPlaying()) {
+            mainSound.pause();
+        }
     }
 
     @Override
@@ -73,7 +84,16 @@ public class AttackActivity extends AppCompatActivity {
         super.onStop();
         clickSound.start();
         databaseHelper.closeDataBase();
-        mainSound.stop();
+        if (mainSound != null && mainSound.isPlaying()) {
+            mainSound.pause();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mainSound.release();
+        mainSound = null;
     }
 
     @Override

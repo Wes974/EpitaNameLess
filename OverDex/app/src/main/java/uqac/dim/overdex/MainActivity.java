@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity  {
 
     private  MediaPlayer clickSound;
     private  MediaPlayer mainSound;
-    private int mainSound_length;
 
     private DatabaseHelper databaseHelper;
     private ArrayList<Heroes> heroesArrayList;
@@ -51,9 +50,13 @@ public class MainActivity extends AppCompatActivity  {
         layDrawer.addDrawerListener(drawerToggle);
 
         clickSound = MediaPlayer.create(this, R.raw.soundclick);
-        mainSound = MediaPlayer.create(this, R.raw.soundmain);
-        mainSound.setLooping(true);
-        mainSound.start();
+        try{
+            mainSound = MediaPlayer.create(this, R.raw.soundmain);
+            mainSound.setLooping(true);
+            mainSound.prepare();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
@@ -68,24 +71,41 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     @Override
-    public void onPause(){
+    protected void onStart(){
+        super.onStart();
+        mainSound.start();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if (mainSound != null && !mainSound.isPlaying()) {
+            mainSound.start();
+        }
+    }
+
+    @Override
+    protected void onPause(){
         super.onPause();
-        mainSound.pause();
-        mainSound_length = mainSound.getCurrentPosition();
+        if (mainSound != null && mainSound.isPlaying()) {
+            mainSound.pause();
+        }
     }
 
     @Override
     protected void onStop(){
         super.onStop();
         databaseHelper.closeDataBase();
-        mainSound.stop();
+        if (mainSound != null && mainSound.isPlaying()) {
+            mainSound.pause();
+        }
     }
 
     @Override
-    protected void onResume(){
-        super.onResume();
-        mainSound.seekTo(mainSound_length);
-        mainSound.start();
+    public void onDestroy() {
+        super.onDestroy();
+        mainSound.release();
+        mainSound = null;
     }
 
     public void initLay() {
