@@ -209,7 +209,8 @@
                     android:layout_height="85dp"
                     android:contentDescription="@string/Skin_Button"
                     android:background="@color/transparent"
-                    android:src="@drawable/button_skins" />
+                    android:src="@drawable/button_skins"
+                    android:onClick="openSkinGelleryActivity"/>
             </LinearLayout>
 
         </LinearLayout>

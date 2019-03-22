@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onStop(){
+        clickSound.start();
         super.onStop();
         databaseHelper.closeDataBase();
         if (mainSound != null && mainSound.isPlaying()) {
@@ -192,6 +193,16 @@ public class MainActivity extends AppCompatActivity  {
     public void openAttackActivity(View bouton){
 
         Intent intent = new Intent(MainActivity.this, AttackActivity.class);
+
+        intent.putExtra(EXTRA_ID, ID_heroes);
+        databaseHelper.closeDataBase();
+        clickSound.start();
+        startActivity(intent);
+    }
+
+    public void openSkinGelleryActivity(View bouton){
+
+        Intent intent = new Intent(MainActivity.this, SkinGalleryActivity.class);
 
         intent.putExtra(EXTRA_ID, ID_heroes);
         databaseHelper.closeDataBase();

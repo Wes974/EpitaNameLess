@@ -50,4 +50,5 @@
     <string name="Skin_Button">Lien vers page Skins</string>
 
     <string name="attackActivity">Attaques</string>
+    <string name="skinGalleryActivity">Apparences</string>
 </resources>
