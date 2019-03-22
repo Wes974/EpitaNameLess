@@ -2,6 +2,7 @@ package uqac.dim.overdex;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity  {
     private NavigationView navView;
     private ActionBarDrawerToggle drawerToggle;
 
+    private  MediaPlayer clickSound;
+    private  MediaPlayer mainSound;
+
     private DatabaseHelper databaseHelper;
     private ArrayList<Heroes> heroesArrayList;
     private HeroesAdaptater heroesadaptaer;
@@ -45,6 +49,10 @@ public class MainActivity extends AppCompatActivity  {
         drawerToggle = setDrawerToggle();
         layDrawer.addDrawerListener(drawerToggle);
 
+        clickSound = MediaPlayer.create(this, R.raw.soundclick);
+        mainSound = MediaPlayer.create(this, R.raw.soundmain);
+        mainSound.setLooping(true);
+
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
         databaseHelper.openDatabase();
@@ -58,9 +66,16 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     @Override
+    protected void onStart(){
+        super.onStart();
+        mainSound.start();
+    }
+
+    @Override
     protected void onStop(){
         super.onStop();
         databaseHelper.closeDataBase();
+        mainSound.stop();
     }
 
     public void initLay() {
@@ -98,6 +113,7 @@ public class MainActivity extends AppCompatActivity  {
     private void selectItem(int position) {
         ID_heroes = heroesArrayList.get(position).getId();
         Toast.makeText(this, heroesArrayList.get(position).getName() + " " + ID_heroes, Toast.LENGTH_LONG).show();
+        clickSound.start();
         changeLayoutHeroes(ID_heroes);
 
         listView.setItemChecked(position, true);
@@ -149,6 +165,7 @@ public class MainActivity extends AppCompatActivity  {
 
         intent.putExtra(EXTRA_ID, ID_heroes);
         databaseHelper.closeDataBase();
+        clickSound.start();
         startActivity(intent);
     }
 }

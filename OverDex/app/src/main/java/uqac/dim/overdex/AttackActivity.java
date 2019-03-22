@@ -2,6 +2,7 @@ package uqac.dim.overdex;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,6 +18,8 @@ import uqac.dim.overdex.DataBase.Heroes;
 public class AttackActivity extends AppCompatActivity {
     private ListView listView;
     private android.support.v7.widget.Toolbar toolbar;
+    private  MediaPlayer mainSound;
+    private  MediaPlayer clickSound;
 
     private DatabaseHelper databaseHelper;
     private ArrayList<Heroes> heroesArrayList;
@@ -37,6 +40,10 @@ public class AttackActivity extends AppCompatActivity {
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        clickSound = MediaPlayer.create(this, R.raw.soundclick);
+        mainSound = MediaPlayer.create(this, R.raw.soundmain);
+        mainSound.setLooping(true);
+
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
         databaseHelper.openDatabase();
@@ -46,9 +53,17 @@ public class AttackActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart(){
+        super.onStart();
+        mainSound.start();
+    }
+
+    @Override
     protected void onStop(){
         super.onStop();
+        clickSound.start();
         databaseHelper.closeDataBase();
+        mainSound.stop();
     }
 
     @Override
