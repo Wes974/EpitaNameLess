@@ -51,4 +51,5 @@
 
     <string name="attackActivity">Attaques</string>
     <string name="skinGalleryActivity">Apparences</string>
+    <string name="search_hint">Nom Héros</string>
 </resources>

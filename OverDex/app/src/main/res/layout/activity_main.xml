@@ -26,10 +26,18 @@
             android:layout_gravity="start"
             app:headerLayout="@layout/nav_drawer_header">
 
+            <EditText
+                style="@style/nav_list"
+                android:id="@+id/search_bar_heroes"
+                android:layout_marginTop="@dimen/nav_header_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_hint"
+                android:inputType="text"/>
 
             <ListView
                 android:id="@+id/nav_listView"
-                android:layout_marginTop="@dimen/nav_header_height"
+                android:layout_marginTop="150dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:choiceMode="singleChoice"

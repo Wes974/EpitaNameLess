@@ -12,11 +12,6 @@
         android:src="@drawable/ic_launcher_background"
         android:padding="5dp"/>
     <TextView
-        android:id="@+id/ID_heroes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ID_heroes" />
-    <TextView
         style="@style/nav_list"
         android:id="@+id/Name_heroes"
         android:layout_width="wrap_content"

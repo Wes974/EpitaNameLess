@@ -84,7 +84,6 @@ public class SkinGalleryActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.v("DIM", Integer.toString(ID_heroes) + " Save");
         outState.putInt("ID", ID_heroes);
     }
 
@@ -92,7 +91,6 @@ public class SkinGalleryActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
-            Log.v("DIM",Integer.toString(savedInstanceState.getInt("ID")) + " Restore");
         }
     }
 }

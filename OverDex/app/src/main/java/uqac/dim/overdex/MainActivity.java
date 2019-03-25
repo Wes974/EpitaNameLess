@@ -8,9 +8,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity  {
     private android.support.v7.widget.Toolbar toolbar;
     private NavigationView navView;
     private ActionBarDrawerToggle drawerToggle;
+    private EditText searchHeroes;
 
     private  MediaPlayer clickSound;
     private  MediaPlayer mainSound;
@@ -63,8 +67,23 @@ public class MainActivity extends AppCompatActivity  {
         databaseHelper.openDatabase();
         heroesArrayList = databaseHelper.getHeroesList();
 
+        searchHeroes.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                heroesadaptaer.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
         heroesadaptaer = new HeroesAdaptater(this,heroesArrayList);
         listView.setAdapter(heroesadaptaer);
+
         listView.setOnItemClickListener(new DrawerItemClickListener());
 
         changeLayoutHeroes(ID_heroes);
@@ -114,12 +133,12 @@ public class MainActivity extends AppCompatActivity  {
         layDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navView = (NavigationView) findViewById(R.id.navigation_view);
         listView = (ListView) findViewById(R.id.nav_listView);
+        searchHeroes = (EditText) findViewById(R.id.search_bar_heroes);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.v("DIM", Integer.toString(ID_heroes) + " Save");
         outState.putInt("ID", ID_heroes);
     }
 
@@ -127,7 +146,6 @@ public class MainActivity extends AppCompatActivity  {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
-            Log.v("DIM",Integer.toString(savedInstanceState.getInt("ID")) + " Restore");
             changeLayoutHeroes(savedInstanceState.getInt("ID"));
         }
     }
@@ -142,8 +160,8 @@ public class MainActivity extends AppCompatActivity  {
 
 
     private void selectItem(int position) {
-        ID_heroes = heroesArrayList.get(position).getId();
-        Toast.makeText(this, heroesArrayList.get(position).getName() + " " + ID_heroes, Toast.LENGTH_LONG).show();
+        ID_heroes = (int)heroesadaptaer.getItemId(position);
+        Toast.makeText(this, heroesArrayList.get(position).getName(), Toast.LENGTH_LONG).show();
         clickSound.start();
         changeLayoutHeroes(ID_heroes);
 
