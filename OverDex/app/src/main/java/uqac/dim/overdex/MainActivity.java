@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
             changeLayoutHeroes(savedInstanceState.getInt("ID"));
+            ID_heroes = savedInstanceState.getInt("ID");
         }
     }
 
