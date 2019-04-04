@@ -91,6 +91,7 @@ public class SkinGalleryActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
+            ID_heroes = savedInstanceState.getInt("ID");
         }
     }
 }

@@ -107,6 +107,7 @@ public class AttackActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
             changeLayoutAttacks(savedInstanceState.getInt("ID"));
+            ID_heroes = savedInstanceState.getInt("ID");
         }
     }
 
