@@ -104,7 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 do {
                     int Id = cursor.getInt(cursor.getColumnIndex("ID"));
                     String Name = cursor.getString(cursor.getColumnIndex("Name"));
-                    //byte[] Picture = cursor.getBlob(cursor.getColumnIndex("Picture"));
+                    String Picture = cursor.getString(cursor.getColumnIndex("Picture"));
                     String Classe = cursor.getString(cursor.getColumnIndex("Classe"));
                     String Description = cursor.getString(cursor.getColumnIndex("Description"));
                     String Identity = cursor.getString(cursor.getColumnIndex("Identity"));
@@ -114,8 +114,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     String Afflilation = cursor.getString(cursor.getColumnIndex("Afflilation"));
                     String Citation = cursor.getString(cursor.getColumnIndex("Citation"));
                     String History = cursor.getString(cursor.getColumnIndex("History"));
-                    heroesArrayList.add(new Heroes(Id, Name, null, Classe, Description, Identity, Age, Job, Localisation,
-                            Afflilation, Citation, History));
+                    String Logo = cursor.getString(cursor.getColumnIndex("Logo"));
+                    heroesArrayList.add(new Heroes(Id, Name, Picture, Classe, Description, Identity, Age, Job, Localisation,
+                            Afflilation, Citation, History, Logo));
                 } while (cursor.moveToNext());
             }
             cursor.close();
@@ -133,10 +134,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (cursor != null) {
                 cursor.moveToFirst();
                 do {
-                    //byte[] Logo = cursor.getBlob(cursor.getColumnIndex("Logo"));
+                    String Logo = cursor.getString(cursor.getColumnIndex("Logo"));
                     String Name = cursor.getString(cursor.getColumnIndex("Name"));
                     String Description = cursor.getString(cursor.getColumnIndex("Description"));
-                    attacksArrayList.add(new Attacks(Id_heroes,null,Name,Description));
+                    attacksArrayList.add(new Attacks(Id_heroes,Logo,Name,Description));
                 } while (cursor.moveToNext());
             }
             cursor.close();

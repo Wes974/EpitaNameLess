@@ -4,7 +4,7 @@ public class Heroes {
 
     int Id;
     String Name;
-    byte[] Picture;
+    String Picture;
     String Classe;
     String Description;
     String Identity;
@@ -14,9 +14,10 @@ public class Heroes {
     String Afflilation;
     String Citation;
     String History;
+    String Logo;
 
-    public Heroes(int id, String name, byte[] picture, String classe, String description, String identity,
-                  String age, String job, String localisation, String afflilation, String citation, String history) {
+    public Heroes(int id, String name, String picture, String classe, String description, String identity,
+                  String age, String job, String localisation, String afflilation, String citation, String history, String logo) {
         this.Id = id;
         this.Name = name;
         this.Picture = picture;
@@ -29,6 +30,7 @@ public class Heroes {
         this.Afflilation = afflilation;
         this.Citation = citation;
         this.History = history;
+        this.Logo = logo;
     }
 
     //-------- Setters --------
@@ -38,7 +40,7 @@ public class Heroes {
     public void setName(String name){
         this.Name = name;
     }
-    public void setPicture(byte[] picture){
+    public void setPicture(String picture){
         this.Picture = picture;
     }
     public void setClasse(String classe){
@@ -68,6 +70,8 @@ public class Heroes {
     public void setHistory(String history){
         this.History = history;
     }
+    public void setLogo(String logo) { this. Logo = logo;
+    }
 
     //-------- Getters --------
     public int getId() {
@@ -76,7 +80,7 @@ public class Heroes {
     public String getName() {
         return this.Name;
     }
-    public byte[] getPicture() {
+    public String getPicture() {
         return this.Picture;
     }
     public String getClasse() {
@@ -105,5 +109,7 @@ public class Heroes {
     }
     public String getHistory() {
         return this.History;
+    }
+    public String getLogo() { return this.Logo;
     }
 }
