@@ -14,9 +14,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -199,6 +202,7 @@ public class MainActivity extends AppCompatActivity  {
             return;
         }
         setTitle(heroesArrayList.get(index).getName());
+        Glide.with(this).load(heroesArrayList.get(index).getPicture()).into((ImageView)findViewById(R.id.picture_heroes));
         ((TextView)findViewById(R.id.Identity_heroes)).setText(heroesArrayList.get(index).getIdentity());
         ((TextView)findViewById(R.id.Age_heroes)).setText(heroesArrayList.get(index).getAge());
         ((TextView)findViewById(R.id.Job_heroes)).setText(heroesArrayList.get(index).getJob());

@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -33,14 +36,13 @@ public class AttacksAdaptater extends ArrayAdapter<Attacks> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_listview_attacks, parent, false);
         }
 
+        ImageView picture_attack = (ImageView) convertView.findViewById(R.id.Picture_attacks);
         TextView name_attacks = (TextView) convertView.findViewById(R.id.Name_attacks);
         TextView description_attacks = (TextView) convertView.findViewById(R.id.Descr_attacks);
+
+        Glide.with(context).load(currentAttacks.getLogo()).into(picture_attack);
         name_attacks.setText(currentAttacks.getName());
         description_attacks.setText(currentAttacks.getDescrition());
-
-        Log.v("DIM",currentAttacks.getName());
-        Log.v("DIM",currentAttacks.getDescrition());
-
         return convertView;
     }
 }
