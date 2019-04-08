@@ -111,7 +111,7 @@ public class AttackActivity extends AppCompatActivity {
         }
     }
 
-    public void  changeLayoutAttacks(int ID_heroes) {
+    public void changeLayoutAttacks(int ID_heroes) {
 
         int index = -1;
         for(int i = 0; i < heroesArrayList.size(); i++) {

@@ -40,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 this.close();
                 copyDataBase();
             } catch (IOException e) {
-                throw new Error("Error copying database");}
+                throw new Error("Error in database copying.");}
         }
     }
 
@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         File file = new File(DATABASE_PATH + DATABASE_NAME);
         if(file.exists()){
             file.delete();
-            System.out.println("delete database file.");
+            System.out.println("Database file has been deleted !");
         }
     }
 
@@ -145,5 +145,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.v ("DIM", e.getMessage());
         }
         return attacksArrayList;
+    }
+
+    public ArrayList<Skins> getSkinsList(int Id_heroes) {
+        ArrayList<Skins> skinsArrayList = new ArrayList<Skins>();
+
+        try {
+            Cursor cursor = myDataBase.rawQuery("SELECT * FROM SKINS WHERE ID_Heroes = ?", new String [] {String.valueOf(Id_heroes)});
+            if (cursor != null) {
+                cursor.moveToFirst();
+                do {
+                    String Name = cursor.getString(cursor.getColumnIndex("Name"));
+                    String Image = cursor.getString(cursor.getColumnIndex("Image"));
+                    skinsArrayList.add(new Skins(Id_heroes,Name,Image));
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }catch (Exception e) {
+            Log.v ("DIM", e.getMessage());
+        }
+        return skinsArrayList;
     }
 }

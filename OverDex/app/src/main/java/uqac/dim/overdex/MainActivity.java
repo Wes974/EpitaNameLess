@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity  {
 
     private int ID_heroes = 1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -189,7 +188,7 @@ public class MainActivity extends AppCompatActivity  {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    public void  changeLayoutHeroes (int ID_heroes) {
+    public void changeLayoutHeroes (int ID_heroes) {
 
         int index = -1;
         for(int i = 0; i < heroesArrayList.size(); i++) {
@@ -199,7 +198,7 @@ public class MainActivity extends AppCompatActivity  {
         }
 
         if (index < 0) {
-            Log.v("DIM","This ID does not exist in this DB");
+            Log.v("DIM","This ID does not exist in this DB.");
             return;
         }
         setTitle(heroesArrayList.get(index).getName());
