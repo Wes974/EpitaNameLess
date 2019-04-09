@@ -30,5 +30,10 @@
     <style name="background">
         <item name="android:background">@drawable/background</item>
     </style>
+    <style name="nameSkin">
+        <item name="android:textSize">100px</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/headerText</item>
+    </style>
 
 </resources>

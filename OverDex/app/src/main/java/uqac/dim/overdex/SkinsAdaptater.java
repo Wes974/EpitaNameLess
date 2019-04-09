@@ -1,6 +1,7 @@
 package uqac.dim.overdex;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,14 +45,28 @@ public class SkinsAdaptater extends RecyclerView.Adapter<SkinsAdaptater.ViewHold
         return skinsArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView Image;
 
         public ViewHolder(View itemView) {
             super(itemView);
             Image = (ImageView)itemView.findViewById(R.id.skin);
+            itemView.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            if(position != RecyclerView.NO_POSITION) {
+                String selectSkinName = skinsArrayList.get(position).getName();
+                String selectSkinImage = skinsArrayList.get(position).getImage();
+
+                Intent intent = new Intent(context, SkinZoomActivity.class);
+                intent.putExtra(SkinZoomActivity.EXTRA_SKIN_NAME, selectSkinName);
+                intent.putExtra(SkinZoomActivity.EXTRA_SKIN_IMAGE, selectSkinImage);
+                context.startActivity(intent);
+            }
+        }
     }
 }

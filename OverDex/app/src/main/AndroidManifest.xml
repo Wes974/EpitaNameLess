@@ -33,6 +33,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name=".SkinZoomActivity"
+            android:label="@string/SkinZoomActivity"
+            android:parentActivityName=".SkinGalleryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SkinGalleryActivity" />
+        </activity>
     </application>
 
 </manifest>

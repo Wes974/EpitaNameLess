@@ -52,4 +52,7 @@
     <string name="attackActivity">Attaques</string>
     <string name="skinGalleryActivity">Apparences</string>
     <string name="search_hint">Nom Héros</string>
+
+    <string name="SkinZoomActivity">SkinZoomActivity</string>
+    <string name="name_Skin">name_skin</string>
 </resources>
