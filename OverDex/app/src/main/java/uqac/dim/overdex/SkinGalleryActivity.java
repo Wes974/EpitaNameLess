@@ -4,14 +4,23 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import uqac.dim.overdex.DataBase.DatabaseHelper;
+import uqac.dim.overdex.DataBase.Heroes;
+import uqac.dim.overdex.DataBase.Skins;
 
 public class SkinGalleryActivity extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private MediaPlayer mainSound;
     private MediaPlayer clickSound;
+
+    private ArrayList<Heroes> heroesArrayList;
+    private ArrayList<Skins> skinsArrayList;
 
     private DatabaseHelper databaseHelper;
 
@@ -27,6 +36,26 @@ public class SkinGalleryActivity extends AppCompatActivity {
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        heroesArrayList = databaseHelper.getHeroesList();
+        int index = -1;
+        for(int i = 0; i < heroesArrayList.size(); i++) {
+            if (heroesArrayList.get(i).getId() == ID_heroes) {
+                index = i;
+            }
+        }
+        if (index < 0) {
+            Log.v("DIM","This ID does not exist in this DB");
+            return;
+        }
+        skinsArrayList = databaseHelper.getSkinsList(ID_heroes);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.skin_list);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        SkinsAdaptater skinsAdaptater = new SkinsAdaptater(getApplicationContext(), skinsArrayList);
+        recyclerView.setAdapter(skinsAdaptater);
+
 
         clickSound = MediaPlayer.create(this, R.raw.soundclick);
         try{
