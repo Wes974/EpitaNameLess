@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private void selectItem(int position) {
         ID_heroes = (int)heroesadaptaer.getItemId(position);
-        Toast.makeText(this, heroesArrayList.get(position).getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, heroesArrayList.get(ID_heroes).getName(), Toast.LENGTH_LONG).show();
         clickSound.start();
         changeLayoutHeroes(ID_heroes);
 
