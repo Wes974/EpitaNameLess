@@ -27,16 +27,15 @@ public class SkinsAdaptater extends RecyclerView.Adapter<SkinsAdaptater.ViewHold
         this.skinsArrayList = skinsArrayList;
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public SkinsAdaptater.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_recycleview_skins, viewGroup, false);
         SkinsAdaptater.ViewHolder viewHolder = new SkinsAdaptater.ViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Glide.with(context).load(skinsArrayList.get(i).getImage()).into(viewHolder.Image);
     }
 
@@ -47,10 +46,11 @@ public class SkinsAdaptater extends RecyclerView.Adapter<SkinsAdaptater.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public ImageView Image;
+        ImageView Image;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            Image = (ImageView) itemView.findViewById(R.id.skin);
+            Image = (ImageView)itemView.findViewById(R.id.skin);
         }
 
     }

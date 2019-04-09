@@ -22,6 +22,10 @@ public class SkinGalleryActivity extends AppCompatActivity {
     private ArrayList<Heroes> heroesArrayList;
     private ArrayList<Skins> skinsArrayList;
 
+    private RecyclerView recyclerView;
+    private GridLayoutManager gridLayoutManager;
+    private SkinsAdaptater skinsAdaptater;
+
     private DatabaseHelper databaseHelper;
 
     private int ID_heroes;
@@ -34,28 +38,9 @@ public class SkinGalleryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ID_heroes = intent.getIntExtra(MainActivity.EXTRA_ID, 1);
 
+        recyclerView = (RecyclerView) findViewById(R.id.skin_list);
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        heroesArrayList = databaseHelper.getHeroesList();
-        int index = -1;
-        for(int i = 0; i < heroesArrayList.size(); i++) {
-            if (heroesArrayList.get(i).getId() == ID_heroes) {
-                index = i;
-            }
-        }
-        if (index < 0) {
-            Log.v("DIM","This ID does not exist in this DB");
-            return;
-        }
-        skinsArrayList = databaseHelper.getSkinsList(ID_heroes);
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.skin_list);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        SkinsAdaptater skinsAdaptater = new SkinsAdaptater(getApplicationContext(), skinsArrayList);
-        recyclerView.setAdapter(skinsAdaptater);
-
 
         clickSound = MediaPlayer.create(this, R.raw.soundclick);
         try{
@@ -69,7 +54,11 @@ public class SkinGalleryActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(getApplicationContext());
         databaseHelper.createDatabase();
         databaseHelper.openDatabase();
+
+        heroesArrayList = databaseHelper.getHeroesList();
+        changeLayoutSkin(ID_heroes);
     }
+
 
     @Override
     protected void onStart(){
@@ -122,5 +111,25 @@ public class SkinGalleryActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             ID_heroes = savedInstanceState.getInt("ID");
         }
+    }
+
+    private void changeLayoutSkin(int ID_heroes) {
+        int index = -1;
+        for(int i = 0; i < heroesArrayList.size(); i++) {
+            if (heroesArrayList.get(i).getId() == ID_heroes) {
+                index = i;
+            }
+        }
+        if (index < 0) {
+            Log.v("DIM","This ID does not exist in this DB");
+            return;
+        }
+        skinsArrayList = databaseHelper.getSkinsList(ID_heroes);
+        setTitle(heroesArrayList.get(index).getName());
+
+        gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        skinsAdaptater = new SkinsAdaptater(getApplicationContext(), skinsArrayList);
+        recyclerView.setAdapter(skinsAdaptater);
     }
 }
