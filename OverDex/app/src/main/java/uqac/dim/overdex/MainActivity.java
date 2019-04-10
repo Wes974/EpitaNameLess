@@ -164,10 +164,9 @@ public class MainActivity extends AppCompatActivity  {
 
     private void selectItem(int position) {
         ID_heroes = (int)heroesadaptaer.getItemId(position);
-        Toast.makeText(this, heroesArrayList.get(ID_heroes).getName(), Toast.LENGTH_LONG).show();
         clickSound.start();
-        changeLayoutHeroes(ID_heroes);
 
+        changeLayoutHeroes(ID_heroes);
         listView.setItemChecked(position, true);
         layDrawer.closeDrawer(navView);
     }
@@ -201,6 +200,9 @@ public class MainActivity extends AppCompatActivity  {
             Log.v("DIM","This ID does not exist in this DB.");
             return;
         }
+
+        Toast.makeText(this, heroesArrayList.get(index).getName(), Toast.LENGTH_SHORT).show();
+
         setTitle(heroesArrayList.get(index).getName());
         Glide.with(this).load(heroesArrayList.get(index).getPicture()).into((ImageView)findViewById(R.id.picture_heroes));
         ((TextView)findViewById(R.id.Identity_heroes)).setText(heroesArrayList.get(index).getIdentity());
