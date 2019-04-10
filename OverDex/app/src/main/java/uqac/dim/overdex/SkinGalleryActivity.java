@@ -1,6 +1,7 @@
 package uqac.dim.overdex;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -127,7 +128,13 @@ public class SkinGalleryActivity extends AppCompatActivity {
         skinsArrayList = databaseHelper.getSkinsList(ID_heroes);
         setTitle(heroesArrayList.get(index).getName());
 
-        gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        if ( this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            gridLayoutManager = new GridLayoutManager(getApplicationContext(), 4);
+        }
+        else {
+            gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        }
+
         recyclerView.setLayoutManager(gridLayoutManager);
         skinsAdaptater = new SkinsAdaptater(getApplicationContext(), skinsArrayList);
         recyclerView.setAdapter(skinsAdaptater);
