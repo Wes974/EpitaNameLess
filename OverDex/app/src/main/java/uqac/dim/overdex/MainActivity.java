@@ -3,6 +3,7 @@ package uqac.dim.overdex;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -232,5 +233,12 @@ public class MainActivity extends AppCompatActivity  {
         databaseHelper.closeDataBase();
         clickSound.start();
         startActivity(intent);
+    }
+
+    public void openMediaPage(View Bouton){
+
+        Uri webpage = Uri.parse("https://playoverwatch.com/fr-fr/media/");
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+        startActivity(webIntent);
     }
 }
