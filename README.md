@@ -6,7 +6,7 @@ Réalisé par l'équipe EpitOver constitué de [Hugo GARDE](https://github.com/s
 	
 Vous trouverez dans le dossier docs les documents suivant : 
 
-    - [Document de conception](docs/EpitOver.pdf)
-	- [Rapport de projet](docs/rapport_projet.docx) ([PDF](docs/rapport_projet.pdf))
-	- Vidéo de presentation
-	- [PowerPoint](docs/OverDex_Presentation.pptx) ([PDF](docs/OverDex_Presentation.pdf))
+* [Document de conception](docs/EpitOver.pdf)
+* [Rapport de projet](docs/rapport_projet.docx) ([PDF](docs/rapport_projet.pdf))
+* Vidéo de presentation
+* [PowerPoint](docs/OverDex_Presentation.pptx) ([PDF](docs/OverDex_Presentation.pdf))
