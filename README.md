@@ -8,5 +8,5 @@ Vous trouverez dans le dossier docs les documents suivant :
 
 * [Document de conception](docs/EpitOver.pdf)
 * [Rapport de projet](docs/rapport_projet.docx) ([PDF](docs/rapport_projet.pdf))
-* [Lien vers la Vidéo de presentation](docs/Useful links) [Vidéo](https://streamable.com/6egln)
+* [Lien vers la Vidéo de presentation](docs/Useful-links) ([Vidéo](https://streamable.com/6egln))
 * [PowerPoint](docs/OverDex_Presentation.pptx) ([PDF](docs/OverDex_Presentation.pdf))
