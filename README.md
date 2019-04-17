@@ -1,4 +1,4 @@
-# OverDex
+﻿# OverDex
 	
 Application Android pour le cours d'informatique mobile à l'UQAC (8INF257) pendant le trimestre d'hiver 2019.
 	
@@ -8,5 +8,5 @@ Vous trouverez dans le dossier docs les documents suivant :
 
 * [Document de conception](docs/EpitOver.pdf)
 * [Rapport de projet](docs/rapport_projet.docx) ([PDF](docs/rapport_projet.pdf))
-* Vidéo de presentation
+* [Lien vers la Vidéo de presentation] (docs/Useful links) (https://streamable.com/6egln)
 * [PowerPoint](docs/OverDex_Presentation.pptx) ([PDF](docs/OverDex_Presentation.pdf))
